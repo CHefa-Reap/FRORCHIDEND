@@ -1,26 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Navigation} from './Components/Navigation';
+import {Register} from './Components/Register';
+import {Login} from './Components/Login';
+import {Home} from './Components/Home';
+import OrchidNew from './Components/OrchidNew'
+import Customer from './Components/Customer'
+import Employee from './Components/Employee'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className ="bgcr">
+    <BrowserRouter>
+    <Navigation/>
+      <div className ="container-fluid">
+        <Switch>
+          <Route exact path ='/' component = {Home}/>
+          <Route exact path ='/register' component = {Register}/>
+          <Route exact path = '/login' component = {Login}/>
+          <Route exact path = '/orchidnew' component = {OrchidNew}/>
+          <Route exact path = '/customer' component = {Customer}/>
+          <Route exact path ='/employee' component = {Employee}/>
+
+          
+
+        </Switch>
+
     </div>
-  );
+    </BrowserRouter>
+    </div>
+  )
 }
 
 export default App;
